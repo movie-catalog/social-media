@@ -26,7 +26,7 @@ CREATE TABLE `country` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `country` (
 
 LOCK TABLES `country` WRITE;
 /*!40000 ALTER TABLE `country` DISABLE KEYS */;
-INSERT INTO `country` VALUES (1,'indonesia'),(2,'Malaysia'),(3,'Thailand'),(4,'Brunei'),(5,'Myanmar');
+INSERT INTO `country` VALUES (1,'Indonesia'),(2,'Malaysia'),(3,'Thailand'),(4,'Brunei'),(5,'Myanmar'),(6,'Japan'),(7,'Korea'),(8,'USA'),(9,'Australia'),(10,'Singapore');
 /*!40000 ALTER TABLE `country` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +195,7 @@ CREATE TABLE `status` (
   PRIMARY KEY (`id`),
   KEY `fk_status_1_idx` (`user_id`),
   CONSTRAINT `fk_status_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +204,7 @@ CREATE TABLE `status` (
 
 LOCK TABLES `status` WRITE;
 /*!40000 ALTER TABLE `status` DISABLE KEYS */;
-INSERT INTO `status` VALUES (1,2,'laper uey','jakarta','2018-01-25 18:31:44'),(2,3,'Javascript Susah','jakarta','2018-01-25 18:32:02');
+INSERT INTO `status` VALUES (1,2,'laper uey','jakarta','2018-01-25 18:31:44'),(2,3,'javascript susah','jakarta','2018-01-26 08:22:14'),(3,4,'jomblo nih','jakarta','2018-01-26 08:16:36'),(4,1,'pulang yuk','jakarta','2018-01-26 08:16:36'),(5,5,'patah hati','jakarta','2018-01-26 08:16:36');
 /*!40000 ALTER TABLE `status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +226,7 @@ CREATE TABLE `status_comment` (
   KEY `fk_status_comment_2_idx` (`user_id`),
   CONSTRAINT `fk_status_comment_1` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_status_comment_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +235,7 @@ CREATE TABLE `status_comment` (
 
 LOCK TABLES `status_comment` WRITE;
 /*!40000 ALTER TABLE `status_comment` DISABLE KEYS */;
-INSERT INTO `status_comment` VALUES (1,1,3,'sama nih laper','2018-01-25 18:33:39'),(2,1,2,'ayo beli batagor...','2018-01-25 18:33:39'),(3,1,3,'sama nih laper','2018-01-25 18:38:43'),(4,1,2,'a','2018-01-25 18:38:43');
+INSERT INTO `status_comment` VALUES (1,1,3,'sama nih laper','2018-01-25 18:33:39'),(2,2,1,'ayo beli batagor...','2018-01-26 08:38:35'),(3,3,5,'sabar yah','2018-01-26 08:38:35'),(4,4,2,'yeaayy','2018-01-26 08:38:35'),(5,5,4,'belajar coding ajah','2018-01-26 08:38:35');
 /*!40000 ALTER TABLE `status_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,7 +257,7 @@ CREATE TABLE `status_reaction` (
   KEY `fk_status_reaction_2_idx` (`user_id`),
   CONSTRAINT `fk_status_reaction_1` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_status_reaction_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -266,7 +266,7 @@ CREATE TABLE `status_reaction` (
 
 LOCK TABLES `status_reaction` WRITE;
 /*!40000 ALTER TABLE `status_reaction` DISABLE KEYS */;
-INSERT INTO `status_reaction` VALUES (2,1,1,'like'),(3,1,2,'haha');
+INSERT INTO `status_reaction` VALUES (1,1,3,'like'),(2,2,4,'haha'),(3,3,5,'haha'),(4,4,1,'like'),(5,5,2,'haha');
 /*!40000 ALTER TABLE `status_reaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -290,7 +290,7 @@ CREATE TABLE `user` (
   `current_city` varchar(30) DEFAULT NULL,
   `hometown` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -299,7 +299,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'haekal','mail@mhaekal.com','password','Muhammad','Haekal','haekal','m','1993-04-19','jakarta','jakarta'),(2,'dono','mail@dono.com','password','dono','dono','dono','m','1997-04-19','jakarta','jakarta'),(3,'nina','mail@nina.com','password','nina','nina','nina','m','1990-04-19','jakarta','jakarta');
+INSERT INTO `user` VALUES (1,'Haekal','haekal@co.id','password','Muhammad','Haekal','Haekal','m','1993-04-19','jakarta','jakarta'),(2,'Dono','dono@co.id','password','Aditia','Dono','Dono','m','1997-04-19','jakarta','jakarta'),(3,'Nina','nina@co.id','password','Nina','Ninong','Nina','f','1990-04-19','jakarta','jakarta'),(4,'Haidar','haidar@co.id','password','Muhammad','Haidar','Haidar','m','1993-05-19','jakarta','jakarta'),(5,'Oliver','oliver@co.id','password','Oliver','Mon','Oliver','m','1990-06-19','jakarta','surabaya');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -312,4 +312,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-26 10:55:41
+-- Dump completed on 2018-01-26 15:52:54

@@ -14,13 +14,11 @@ const path = require('path')
 const _ = require('lodash')
 const engines = require('consolidate')
 const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended: false}))
 
-app.get('/user',(req,res) => {
-  connection.query("SELECT * FROM user", (error, results, fields) => {
-    if (error) throw error
-    res.json(results)
-  })
-})
+
+var userRouter = require('./user')
+app.use('/user', userRouter)
 
 //port configuration
 const server = app.listen(3000,() => {
